@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Play, Youtube, Instagram, Mail, TrendingUp, Users, Star, ArrowRight, Video, Clock, MessageCircle, FileText, BookOpen, ChevronDown, Quote, Send, Activity, CheckCircle2 } from 'lucide-react';
-import { motion, useMotionValue, useTransform, animate } from 'motion/react';
+import { Play, Youtube, Instagram, Mail, TrendingUp, Users, Star, ArrowRight, Video, Clock, MessageCircle, FileText, BookOpen, ChevronDown, Quote, Send, Activity, CheckCircle2, X } from 'lucide-react';
+import { motion, useMotionValue, useTransform, animate, AnimatePresence } from 'motion/react';
+
+const SpotifyIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.84.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.84.241 1.2zM20.16 9.6C16.44 7.38 9.54 7.2 5.58 8.4c-.6.18-1.2-.18-1.38-.72-.18-.6.18-1.2.72-1.38 4.68-1.38 12.24-1.14 16.62 1.5.539.3.719 1.02.419 1.56-.299.42-1.02.599-1.559.24z"/>
+  </svg>
+);
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -34,6 +40,7 @@ function AnimatedNumber({ value, suffix = "", duration = 2 }: { value: number, s
 export default function App() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [lang, setLang] = useState<'en' | 'de'>('en');
+  const [isPodcastPlaying, setIsPodcastPlaying] = useState(false);
 
   useEffect(() => {
     // Auto-detect language based on browser locale
@@ -212,6 +219,7 @@ export default function App() {
               <div className="flex gap-3 mt-5 justify-start md:justify-end">
                 <a href="#" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><Youtube className="w-5 h-5" /></a>
                 <a href="#" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><Instagram className="w-5 h-5" /></a>
+                <a href="https://open.spotify.com/show/1NNBLS1lzJwfpfSCl50Bnv" target="_blank" rel="noopener noreferrer" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><SpotifyIcon className="w-5 h-5" /></a>
               </div>
             </motion.div>
 
@@ -362,31 +370,42 @@ export default function App() {
                 {t.podcast.desc}
               </p>
               <div className="flex gap-4">
-                <button className="bg-black text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors">
-                  <Play className="w-4 h-4" /> Spotify
-                </button>
-                <button className="bg-transparent border-2 border-black text-black px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-black hover:text-white transition-colors">
-                  <Play className="w-4 h-4" /> Apple Podcasts
-                </button>
+                <a href="https://open.spotify.com/show/1NNBLS1lzJwfpfSCl50Bnv" target="_blank" rel="noopener noreferrer" className="bg-black text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors">
+                  <SpotifyIcon className="w-4 h-4" /> Spotify
+                </a>
               </div>
             </motion.div>
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
               className="md:w-1/2 w-full"
             >
-              <div className="bg-white p-4 rounded-2xl shadow-xl border border-black/5 flex items-center gap-6 group cursor-pointer hover:shadow-2xl transition-all duration-300">
-                <div className="w-32 h-32 rounded-xl overflow-hidden relative flex-shrink-0">
-                  <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104625_7ace96a9-4653-4e59-a182-17a928b72d4a.jpeg&w=1280&q=85" alt="Podcast Episode" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
-                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                      <Play className="w-4 h-4 text-black ml-1" />
-                    </div>
-                  </div>
+              <div className="relative w-full max-w-[540px] md:ml-auto">
+                {/* Decorative background glow */}
+                <div className="absolute -inset-4 bg-black/5 blur-2xl rounded-[32px] -z-10"></div>
+                
+                {/* Label */}
+                <div className="flex items-center gap-3 mb-4 ml-2">
+                  <span className="flex h-2.5 w-2.5 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-600"></span>
+                  </span>
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Latest Episode</span>
                 </div>
-                <div>
-                  <div className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">LATEST EPISODE</div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-1">{t.podcast.epTitle}</h4>
-                  <p className="text-sm text-gray-500 line-clamp-2">{t.podcast.epDesc}</p>
+
+                {/* Player Container */}
+                <div className="w-full rounded-[16px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden transition-transform hover:-translate-y-1 duration-300 bg-[#121212]">
+                  <iframe 
+                    data-testid="embed-iframe" 
+                    style={{ borderRadius: '16px' }} 
+                    src="https://open.spotify.com/embed/episode/5EbzzQGnBi8COq8h3rIxel?utm_source=generator&theme=0" 
+                    width="100%" 
+                    height="152" 
+                    frameBorder="0" 
+                    allowFullScreen 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy"
+                    className="block"
+                  ></iframe>
                 </div>
               </div>
             </motion.div>
@@ -850,6 +869,49 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      {/* Podcast Modal */}
+      <AnimatePresence>
+        {isPodcastPlaying && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+          >
+            <div 
+              className="absolute inset-0 bg-black/40 backdrop-blur-xl"
+              onClick={() => setIsPodcastPlaying(false)}
+            />
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl overflow-hidden"
+            >
+              <button 
+                onClick={() => setIsPodcastPlaying(false)}
+                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/10 hover:bg-black/20 rounded-full flex items-center justify-center transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-800" />
+              </button>
+              <div className="p-6 sm:p-10">
+                <h3 className="text-2xl font-bold mb-6 pr-12">{t.podcast.epTitle}</h3>
+                <iframe 
+                  style={{ borderRadius: '12px' }} 
+                  src="https://open.spotify.com/embed/episode/5EbzzQGnBi8COq8h3rIxel?utm_source=generator&theme=0" 
+                  width="100%" 
+                  height="352" 
+                  frameBorder="0" 
+                  allowFullScreen 
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
