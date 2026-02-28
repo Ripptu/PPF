@@ -306,9 +306,9 @@ export default function App() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             {[
-              { img: 'https://picsum.photos/seed/tech1/800/450', title: t.videos.v1Title, views: t.videos.v1Views, time: t.videos.v1Time, duration: '24:15' },
-              { img: 'https://picsum.photos/seed/business/800/450', title: t.videos.v2Title, views: t.videos.v2Views, time: t.videos.v2Time, duration: '31:40' },
-              { img: 'https://picsum.photos/seed/abstract/800/450', title: t.videos.v3Title, views: t.videos.v3Views, time: t.videos.v3Time, duration: '19:50' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_093643_c233de80-10d2-484d-9fe6-1c6215b2d7fe.png&w=1280&q=85', title: t.videos.v1Title, views: t.videos.v1Views, time: t.videos.v1Time, duration: '24:15' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_093647_312c78db-afc4-4626-a67a-777b23000e6d.jpeg&w=1280&q=85', title: t.videos.v2Title, views: t.videos.v2Views, time: t.videos.v2Time, duration: '31:40' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_093652_c98e683c-f4af-491e-8650-034db58db963.jpeg&w=1280&q=85', title: t.videos.v3Title, views: t.videos.v3Views, time: t.videos.v3Time, duration: '19:50' },
             ].map((video, idx) => (
               <motion.div key={idx} variants={fadeInUp} className="group cursor-pointer">
                 <div className="relative rounded-[32px] overflow-hidden aspect-video mb-6 shadow-xl shadow-black/5 ring-1 ring-black/5">
