@@ -52,10 +52,16 @@ export default function App() {
       hero: { hey: "Hey,", there: "there", badge: "Open for Brand Partnerships", desc1: "Producing meticulously researched", desc2: "video essays, deep dives, and", desc3: "mini-documentaries.", role1: "VIDEO", role2: "ESSAYIST &", role3: "RESEARCHER" },
       stats: { live: "Live YouTube API Sync", subs: "Subscribers", views: "Monthly Views", time: "Avg. Watch Time", docs: "Documentaries" },
       videos: { title: "LATEST ESSAYS", desc: "Deep dives into internet culture, economics, and the hidden systems that shape our world.", viewAll: "View All Documentaries", v1Title: "The Dark Psychology of Casino Apps", v1Views: "2.4M views", v1Time: "1 week ago", v2Title: "How One Company Monopolized the Internet", v2Views: "1.8M views", v2Time: "3 weeks ago", v3Title: "The Hidden Cost of 'Free' Shipping", v3Views: "3.1M views", v3Time: "1 month ago" },
+      podcast: { title: "THE AUDIO FILES", desc: "Listen to the essays and exclusive interviews on the go.", epTitle: "JFK: The Unsolved Mystery", epDesc: "A deep dive into the events of November 22, 1963." },
+      timeline: { title: "THE JOURNEY", m1Year: "2021", m1Text: "Channel Launched", m2Year: "2023", m2Text: "1 Million Subscribers", m3Year: "2024", m3Text: "First Major Award" },
+      demographics: { title: "AUDIENCE DEMOGRAPHICS", male: "75% Male", age: "18-34 Years", region: "60% DACH", edu: "High Education" },
+      howIWork: { title: "METHODOLOGY", step1: "Idea", step2: "Deep Research", step3: "Script", step4: "Animation", step5: "Upload" },
       sponsors: { title: "PARTNER WITH ME", desc: "Looking to reach a highly educated, analytical audience? I offer seamless, high-retention integrations that respect the viewer's intelligence.", s1Title: "Deep-Dive Integrations", s1Desc: "A highly scripted 60-90 second mid-roll integration that naturally connects your brand's value to the documentary's core topic.", s2Title: "Dedicated Mini-Docs", s2Desc: "An entire 15-20 minute video essay sponsored by and subtly themed around your brand's industry or mission.", s3Title: "Newsletter Placements", s3Desc: "Reach my most dedicated viewers directly in their inbox with a sponsored segment in the weekly 'Research Notes' dispatch.", trusted: "Trusted by brands that value education" },
       testimonials: { title: "Declassified Feedback", desc: "What other creators and experts say about the research.", t1Quote: "Nicole's ability to distill complex economic theories into engaging, 20-minute narratives is unmatched on this platform.", t1Author: "Creator X", t1Role: "3M+ Subscribers", t2Quote: "The level of journalistic integrity in the 'Private Power Files' series sets a new standard for YouTube documentaries.", t2Author: "Dr. Y", t2Role: "Media Analyst" },
       faq: { title: "Sponsorship FAQ", desc: "Common questions from agencies and brands.", q1: "How does an integration work?", a1: "After the kick-off call, I develop a concept that organically fits the topic of the video. Once approved, it goes into production and I handle the rest.", q2: "How much creative freedom do you need?", a2: "A lot. My viewers trust me because I remain authentic. I integrate your key messages, but in my own wording and style so it doesn't feel like a foreign body.", q3: "Are there exclusivity guarantees?", a3: "Yes, there are no other sponsors for the respective video. Industry exclusivity for a certain period can be negotiated individually.", q4: "What are the lead times?", a4: "Since my research is very time-consuming, I ideally schedule sponsors 4-6 weeks before publication. For Deep-Dive Integrations, I need at least 6 weeks lead time." },
       vault: { title1: "ACCESS THE", title2: "RESEARCH", title3: "VAULT", desc: "Get exclusive access to my raw research notes, uncut expert interviews, and help decide which rabbit hole we dive into next.", patreon: "Join on Patreon", newsletter: "Read the Newsletter", badge1: "Source Materials", badge2: "Debate Discord" },
+      suggestion: { title: "SUGGEST A TOPIC", desc: "Got an idea for the next deep dive? Send it anonymously via WhatsApp.", placeholder: "Your idea...", button: "Send via WhatsApp" },
+      easterEgg: { redacted: "██████████", revealed: "USE CODE 'SECRET20' FOR 20% OFF PATREON" },
       contact: { title1: "Need deep", title2: "research?", desc: "I offer freelance research, script consulting, and fact-checking for other creators, agencies, and media companies. Let's uncover the truth together.", check1: "Extensive data analysis & fact-checking", check2: "Script structuring for maximum retention", check3: "Access to exclusive academic databases", name: "Name", company: "Company / Channel", details: "Project Details", budget: "Estimated Budget", send: "Send Inquiry" },
       footer: { mediaKit: "Media Kit (PDF)", imprint: "Imprint", privacy: "Privacy Policy", rights: "All rights reserved." }
     },
@@ -65,10 +71,16 @@ export default function App() {
       hero: { hey: "Hey,", there: "da", badge: "Offen für Markenpartnerschaften", desc1: "Produktion von akribisch recherchierten", desc2: "Video-Essays, Deep Dives und", desc3: "Mini-Dokumentationen.", role1: "VIDEO", role2: "ESSAYISTIN &", role3: "RESEARCHER" },
       stats: { live: "Live YouTube API Sync", subs: "Abonnenten", views: "Monatliche Aufrufe", time: "Durchschn. Wiedergabezeit", docs: "Dokumentationen" },
       videos: { title: "NEUESTE ESSAYS", desc: "Tiefe Einblicke in Internetkultur, Wirtschaft und die verborgenen Systeme, die unsere Welt prägen.", viewAll: "Alle Dokumentationen ansehen", v1Title: "Die dunkle Psychologie von Casino-Apps", v1Views: "2,4 Mio. Aufrufe", v1Time: "vor 1 Woche", v2Title: "Wie ein Unternehmen das Internet monopolisierte", v2Views: "1,8 Mio. Aufrufe", v2Time: "vor 3 Wochen", v3Title: "Die versteckten Kosten von 'kostenlosem' Versand", v3Views: "3,1 Mio. Aufrufe", v3Time: "vor 1 Monat" },
+      podcast: { title: "DIE AUDIO AKTEN", desc: "Höre die Essays und exklusive Interviews von unterwegs.", epTitle: "JFK: Das ungelöste Geheimnis", epDesc: "Ein Deep Dive in die Ereignisse vom 22. November 1963." },
+      timeline: { title: "DIE REISE", m1Year: "2021", m1Text: "Kanalstart", m2Year: "2023", m2Text: "1 Mio. Abonnenten", m3Year: "2024", m3Text: "Erster Award" },
+      demographics: { title: "ZUSCHAUER DEMOGRAFIE", male: "75% Männlich", age: "18-34 Jahre", region: "60% aus DACH", edu: "Hohes Bildungsniveau" },
+      howIWork: { title: "METHODIK", step1: "Idee", step2: "Deep Research", step3: "Skript", step4: "Animation", step5: "Upload" },
       sponsors: { title: "PARTNERSCHAFTEN", desc: "Möchten Sie ein hochgebildetes, analytisches Publikum erreichen? Ich biete nahtlose Integrationen mit hoher Zuschauerbindung, die die Intelligenz der Zuschauer respektieren.", s1Title: "Deep-Dive Integrationen", s1Desc: "Eine stark geskriptete 60-90 Sekunden Mid-Roll-Integration, die den Wert Ihrer Marke natürlich mit dem Kernthema der Dokumentation verbindet.", s2Title: "Dedizierte Mini-Dokus", s2Desc: "Ein komplettes 15-20 minütiges Video-Essay, das von Ihrer Marke gesponsert wird und subtil um Ihre Branche oder Mission thematisiert ist.", s3Title: "Newsletter Platzierungen", s3Desc: "Erreichen Sie meine treuesten Zuschauer direkt in ihrem Posteingang mit einem gesponserten Segment im wöchentlichen 'Research Notes' Newsletter.", trusted: "Vertraut von Marken, die Bildung schätzen" },
       testimonials: { title: "Freigegebenes Feedback", desc: "Was andere Creator und Experten über die Recherche sagen.", t1Quote: "Nicoles Fähigkeit, komplexe Wirtschaftstheorien in fesselnde, 20-minütige Erzählungen zu destillieren, ist auf dieser Plattform unerreicht.", t1Author: "Creator X", t1Role: "3M+ Abonnenten", t2Quote: "Das Maß an journalistischer Integrität in der 'Private Power Files'-Serie setzt einen neuen Standard für YouTube-Dokumentationen.", t2Author: "Dr. Y", t2Role: "Medienanalyst" },
       faq: { title: "Sponsoring FAQ", desc: "Häufige Fragen von Agenturen und Marken.", q1: "Wie läuft eine Integration ab?", a1: "Nach dem Kick-off Call erarbeite ich ein Konzept, das organisch in das Thema des Videos passt. Nach eurer Freigabe geht es in die Produktion und ich kümmere mich um den Rest.", q2: "Wie viel kreative Freiheit brauchst du?", a2: "Sehr viel. Meine Zuschauer vertrauen mir, weil ich authentisch bleibe. Ich integriere eure Key-Messages, aber in meinem eigenen Wording und Stil, damit es nicht wie ein Fremdkörper wirkt.", q3: "Gibt es Exklusivitäts-Garantien?", a3: "Ja, für das jeweilige Video gibt es keine anderen Sponsoren. Branchen-Exklusivität für einen bestimmten Zeitraum kann individuell verhandelt werden.", q4: "Wie lange sind die Vorlaufzeiten?", a4: "Da meine Recherchen sehr aufwendig sind, plane ich Sponsoren idealerweise 4-6 Wochen vor Veröffentlichung ein. Für Deep-Dive Integrations brauche ich mindestens 6 Wochen Vorlauf." },
       vault: { title1: "ZUGANG ZUM", title2: "RECHERCHE", title3: "ARCHIV", desc: "Erhalten Sie exklusiven Zugang zu meinen rohen Recherche-Notizen, ungeschnittenen Experteninterviews und entscheiden Sie mit, in welches Thema wir als Nächstes eintauchen.", patreon: "Auf Patreon beitreten", newsletter: "Newsletter lesen", badge1: "Quellenmaterial", badge2: "Debatten Discord" },
+      suggestion: { title: "THEMA VORSCHLAGEN", desc: "Hast du eine Idee für den nächsten Deep Dive? Sende sie anonym per WhatsApp.", placeholder: "Deine Idee...", button: "Per WhatsApp senden" },
+      easterEgg: { redacted: "██████████", revealed: "CODE 'SECRET20' FÜR 20% RABATT AUF PATREON" },
       contact: { title1: "Brauchst du tiefe", title2: "Recherche?", desc: "Ich biete freiberufliche Recherche, Skript-Beratung und Fact-Checking für andere Creator, Agenturen und Medienunternehmen an. Lass uns gemeinsam die Wahrheit aufdecken.", check1: "Umfassende Datenanalyse & Fact-Checking", check2: "Skript-Strukturierung für maximale Retention", check3: "Zugang zu exklusiven akademischen Datenbanken", name: "Name", company: "Firma / Kanal", details: "Projekt-Details", budget: "Geschätztes Budget", send: "Anfrage senden" },
       footer: { mediaKit: "Media Kit (PDF)", imprint: "Impressum", privacy: "Datenschutzerklärung", rights: "Alle Rechte vorbehalten." }
     }
@@ -306,9 +318,9 @@ export default function App() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
             {[
-              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_093643_c233de80-10d2-484d-9fe6-1c6215b2d7fe.png&w=1280&q=85', title: t.videos.v1Title, views: t.videos.v1Views, time: t.videos.v1Time, duration: '24:15' },
-              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_093647_312c78db-afc4-4626-a67a-777b23000e6d.jpeg&w=1280&q=85', title: t.videos.v2Title, views: t.videos.v2Views, time: t.videos.v2Time, duration: '31:40' },
-              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_093652_c98e683c-f4af-491e-8650-034db58db963.jpeg&w=1280&q=85', title: t.videos.v3Title, views: t.videos.v3Views, time: t.videos.v3Time, duration: '19:50' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104433_b5fefd8a-0189-4514-bbf7-82c69021f7d6.jpeg&w=1280&q=85', title: t.videos.v1Title, views: t.videos.v1Views, time: t.videos.v1Time, duration: '24:15' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104036_d28b472c-6f7d-4daa-b149-1eb0b0515768.jpeg&w=1280&q=85', title: t.videos.v2Title, views: t.videos.v2Views, time: t.videos.v2Time, duration: '31:40' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104122_02ef2894-9775-4159-b963-b527eae6db7b.jpeg&w=1280&q=85', title: t.videos.v3Title, views: t.videos.v3Views, time: t.videos.v3Time, duration: '19:50' },
             ].map((video, idx) => (
               <motion.div key={idx} variants={fadeInUp} className="group cursor-pointer">
                 <div className="relative rounded-[32px] overflow-hidden aspect-video mb-6 shadow-xl shadow-black/5 ring-1 ring-black/5">
@@ -337,6 +349,94 @@ export default function App() {
         </div>
       </section>
 
+      {/* Podcast Integration */}
+      <section className="relative w-full bg-[#f5f5f5] py-24 border-y border-black/5">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <motion.div 
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
+              className="md:w-1/2"
+            >
+              <h3 className="font-display font-bold text-[40px] md:text-[60px] leading-none tracking-[-0.03em] mb-6">{t.podcast.title}</h3>
+              <p className="text-gray-600 text-xl font-medium mb-8">
+                {t.podcast.desc}
+              </p>
+              <div className="flex gap-4">
+                <button className="bg-black text-white px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-gray-800 transition-colors">
+                  <Play className="w-4 h-4" /> Spotify
+                </button>
+                <button className="bg-transparent border-2 border-black text-black px-6 py-3 rounded-full font-bold flex items-center gap-2 hover:bg-black hover:text-white transition-colors">
+                  <Play className="w-4 h-4" /> Apple Podcasts
+                </button>
+              </div>
+            </motion.div>
+            <motion.div 
+              initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
+              className="md:w-1/2 w-full"
+            >
+              <div className="bg-white p-4 rounded-2xl shadow-xl border border-black/5 flex items-center gap-6 group cursor-pointer hover:shadow-2xl transition-all duration-300">
+                <div className="w-32 h-32 rounded-xl overflow-hidden relative flex-shrink-0">
+                  <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104625_7ace96a9-4653-4e59-a182-17a928b72d4a.jpeg&w=1280&q=85" alt="Podcast Episode" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" referrerPolicy="no-referrer" />
+                  <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <Play className="w-4 h-4 text-black ml-1" />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-xs font-bold text-amber-600 uppercase tracking-wider mb-2">LATEST EPISODE</div>
+                  <h4 className="text-xl font-bold text-gray-900 mb-1">{t.podcast.epTitle}</h4>
+                  <p className="text-sm text-gray-500 line-clamp-2">{t.podcast.epDesc}</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Interactive Milestone Timeline */}
+      <section className="relative w-full bg-white py-32 overflow-hidden">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
+            className="text-center mb-20"
+          >
+            <h3 className="font-display font-bold text-[50px] md:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.timeline.title}</h3>
+          </motion.div>
+
+          <div className="relative max-w-4xl mx-auto">
+            {/* Vertical Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+
+            <div className="space-y-24">
+              {[
+                { year: t.timeline.m1Year, text: t.timeline.m1Text, align: "right" },
+                { year: t.timeline.m2Year, text: t.timeline.m2Text, align: "left" },
+                { year: t.timeline.m3Year, text: t.timeline.m3Text, align: "right" }
+              ].map((milestone, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: idx * 0.2 }}
+                  className={`flex items-center justify-between w-full ${milestone.align === 'left' ? 'flex-row-reverse' : ''}`}
+                >
+                  <div className="w-5/12"></div>
+                  <div className="w-2/12 flex justify-center relative">
+                    <div className="w-6 h-6 bg-amber-500 rounded-full border-4 border-white shadow-md z-10"></div>
+                  </div>
+                  <div className={`w-5/12 ${milestone.align === 'left' ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                    <h4 className="text-3xl font-display font-bold text-black mb-2">{milestone.year}</h4>
+                    <p className="text-gray-600 font-medium text-lg">{milestone.text}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Sponsorships & Services */}
       <section id="sponsors" className="relative bg-[#0a0a0a] text-white py-32 overflow-hidden">
         {/* Decorative Background Elements */}
@@ -356,7 +456,7 @@ export default function App() {
 
           <motion.div 
             variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-32"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24"
           >
             {[
               { icon: Video, title: t.sponsors.s1Title, desc: t.sponsors.s1Desc },
@@ -370,6 +470,32 @@ export default function App() {
                 <p className="text-gray-400 leading-relaxed relative z-10 text-lg">{service.desc}</p>
               </motion.div>
             ))}
+          </motion.div>
+
+          {/* Demographics */}
+          <motion.div
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
+            className="mb-32 bg-[#141414] rounded-[40px] p-10 md:p-16 border border-white/5"
+          >
+            <h4 className="text-center text-sm font-bold tracking-widest text-gray-500 uppercase mb-12">{t.demographics.title}</h4>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-4xl md:text-5xl font-display font-bold text-amber-500 mb-2">75%</div>
+                <div className="text-gray-400 font-medium">{t.demographics.male}</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-display font-bold text-amber-500 mb-2">18-34</div>
+                <div className="text-gray-400 font-medium">{t.demographics.age}</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-display font-bold text-amber-500 mb-2">60%</div>
+                <div className="text-gray-400 font-medium">{t.demographics.region}</div>
+              </div>
+              <div>
+                <div className="text-4xl md:text-5xl font-display font-bold text-amber-500 mb-2">🎓</div>
+                <div className="text-gray-400 font-medium">{t.demographics.edu}</div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Brands Marquee */}
@@ -472,6 +598,46 @@ export default function App() {
         </div>
       </section>
 
+      {/* How I Work / Methodology */}
+      <section className="relative w-full bg-white py-32 border-t border-black/5">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
+            className="text-center mb-20"
+          >
+            <h3 className="font-display font-bold text-[50px] md:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.howIWork.title}</h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {[
+              { step: "01", title: t.howIWork.step1, icon: Activity },
+              { step: "02", title: t.howIWork.step2, icon: BookOpen },
+              { step: "03", title: t.howIWork.step3, icon: FileText },
+              { step: "04", title: t.howIWork.step4, icon: Video },
+              { step: "05", title: t.howIWork.step5, icon: Youtube }
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-[#fafafa] p-8 rounded-[32px] border border-black/5 relative group hover:bg-amber-500 hover:text-white transition-colors duration-300"
+              >
+                <div className="text-4xl font-display font-bold text-gray-200 group-hover:text-white/30 mb-6 transition-colors">{item.step}</div>
+                <item.icon className="w-10 h-10 text-amber-500 group-hover:text-white mb-4 transition-colors" />
+                <h4 className="text-xl font-bold">{item.title}</h4>
+                {idx < 4 && (
+                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-gray-300 group-hover:text-white/50">
+                    <ArrowRight className="w-6 h-6" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Community / Private Power Files */}
       <section id="community" className="py-32 bg-gradient-to-br from-amber-400 via-amber-500 to-orange-600 text-black relative overflow-hidden">
         {/* Animated Background Mesh */}
@@ -540,6 +706,43 @@ export default function App() {
                  <MessageCircle className="w-5 h-5 text-amber-600" fill="currentColor" /> {t.vault.badge2}
                </motion.div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Topic Suggestion Box */}
+      <section className="relative w-full bg-[#141414] text-white py-24 border-t border-white/5">
+        <div className="max-w-[800px] mx-auto px-6 md:px-12 text-center">
+          <motion.div 
+            initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
+          >
+            <h3 className="font-display font-bold text-[40px] md:text-[60px] leading-none tracking-[-0.03em] mb-6">{t.suggestion.title}</h3>
+            <p className="text-gray-400 text-xl font-medium mb-10">
+              {t.suggestion.desc}
+            </p>
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                const input = (e.target as any).elements.topic.value;
+                if (input) {
+                  const text = encodeURIComponent(`New Topic Idea: ${input}`);
+                  window.open(`https://wa.me/?text=${text}`, '_blank');
+                  (e.target as any).reset();
+                }
+              }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <input 
+                type="text" 
+                name="topic"
+                placeholder={t.suggestion.placeholder}
+                required
+                className="flex-1 bg-white/5 border border-white/10 rounded-full px-8 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-amber-500 transition-colors"
+              />
+              <button type="submit" className="bg-amber-500 text-black px-8 py-4 rounded-full font-bold hover:bg-amber-400 transition-colors flex items-center justify-center gap-2">
+                <Send className="w-5 h-5" /> {t.suggestion.button}
+              </button>
+            </form>
           </motion.div>
         </div>
       </section>
@@ -628,8 +831,22 @@ export default function App() {
             <a href="#" className="text-gray-500 hover:text-amber-600 font-semibold transition-colors">{t.footer.imprint}</a>
             <a href="#" className="text-gray-500 hover:text-amber-600 font-semibold transition-colors">{t.footer.privacy}</a>
           </div>
-          <div className="text-gray-400 text-sm font-medium">
+          <div className="text-gray-400 text-sm font-medium flex items-center gap-2">
             © 2026 Nicole. {t.footer.rights}
+            <span 
+              className="ml-4 cursor-pointer text-gray-200 hover:text-amber-500 transition-colors select-none"
+              onClick={(e) => {
+                const el = e.currentTarget;
+                if (el.textContent === t.easterEgg.redacted) {
+                  el.textContent = t.easterEgg.revealed;
+                  el.classList.remove('text-gray-200');
+                  el.classList.add('text-amber-500', 'font-bold');
+                }
+              }}
+              title="Classified"
+            >
+              {t.easterEgg.redacted}
+            </span>
           </div>
         </div>
       </footer>
