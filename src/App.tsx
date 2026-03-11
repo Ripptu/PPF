@@ -195,7 +195,7 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="absolute top-[35%] md:top-[45%] left-6 md:left-12 lg:left-20 flex items-center bg-white/80 backdrop-blur-xl px-5 py-2.5 rounded-full shadow-xl pointer-events-auto border border-white/50 hover:scale-105 transition-transform cursor-pointer"
+              className="absolute top-[35%] md:top-[35%] lg:top-[45%] left-6 md:left-12 lg:left-20 flex items-center bg-white/80 backdrop-blur-xl px-5 py-2.5 rounded-full shadow-xl pointer-events-auto border border-white/50 hover:scale-105 transition-transform cursor-pointer"
             >
               <div className="relative flex items-center justify-center w-3 h-3 mr-3">
                 <div className="absolute w-full h-full bg-green-400 rounded-full animate-ping opacity-75"></div>
@@ -209,7 +209,7 @@ export default function App() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="absolute top-[50%] md:top-[45%] right-6 md:right-12 lg:right-20 max-w-[320px] text-left md:text-right pointer-events-auto bg-white/40 md:bg-transparent p-5 md:p-0 rounded-3xl backdrop-blur-md md:backdrop-blur-none border border-white/20 md:border-none shadow-2xl md:shadow-none"
+              className="absolute top-[50%] md:top-[50%] lg:top-[45%] right-6 md:right-12 lg:right-20 max-w-[320px] text-left md:text-right pointer-events-auto bg-white/40 md:bg-transparent p-5 md:p-0 rounded-3xl backdrop-blur-md md:backdrop-blur-none border border-white/20 md:border-none shadow-2xl md:shadow-none"
             >
               <p className="text-[14px] md:text-[15px] font-semibold leading-relaxed text-black/90 drop-shadow-sm">
                 {t.hero.desc1}<br className="hidden md:block"/>
@@ -229,7 +229,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-                className="font-display font-bold text-[80px] md:text-[120px] xl:text-[140px] leading-[0.85] tracking-[-0.03em] m-0 p-0 text-white drop-shadow-2xl"
+                className="font-display font-bold text-[80px] md:text-[90px] lg:text-[120px] xl:text-[140px] leading-[0.85] tracking-[-0.03em] m-0 p-0 text-white drop-shadow-2xl"
               >
                 I AM<br/>
                 <span className="bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">NICOLE</span>
@@ -242,7 +242,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                className="font-display font-bold text-[50px] md:text-[70px] xl:text-[85px] leading-[0.9] tracking-[-0.03em] m-0 p-0 text-white drop-shadow-2xl"
+                className="font-display font-bold text-[50px] md:text-[50px] lg:text-[70px] xl:text-[85px] leading-[0.9] tracking-[-0.03em] m-0 p-0 text-white drop-shadow-2xl"
               >
                 {t.hero.role1}<br/>{t.hero.role2}<br/>{t.hero.role3}
               </motion.h2>
@@ -310,7 +310,7 @@ export default function App() {
             className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6"
           >
             <div>
-              <h3 className="font-display font-bold text-[50px] md:text-[75px] leading-none tracking-[-0.03em] bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">{t.videos.title}</h3>
+              <h3 className="font-display font-bold text-[50px] md:text-[60px] lg:text-[75px] leading-none tracking-[-0.03em] bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">{t.videos.title}</h3>
               <p className="text-gray-500 mt-4 text-lg max-w-xl font-medium">{t.videos.desc}</p>
             </div>
             <button className="flex items-center gap-2 font-bold text-[15px] border-b-2 border-black pb-1 hover:text-amber-600 hover:border-amber-600 transition-all group">
@@ -365,7 +365,7 @@ export default function App() {
               initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
               className="md:w-1/2"
             >
-              <h3 className="font-display font-bold text-[40px] md:text-[60px] leading-none tracking-[-0.03em] mb-6">{t.podcast.title}</h3>
+              <h3 className="font-display font-bold text-[40px] md:text-[40px] lg:text-[60px] leading-none tracking-[-0.03em] mb-6">{t.podcast.title}</h3>
               <p className="text-gray-600 text-xl font-medium mb-8">
                 {t.podcast.desc}
               </p>
@@ -420,7 +420,7 @@ export default function App() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
             className="text-center mb-20"
           >
-            <h3 className="font-display font-bold text-[50px] md:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.timeline.title}</h3>
+            <h3 className="font-display font-bold text-[50px] md:text-[60px] lg:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.timeline.title}</h3>
           </motion.div>
 
           <div className="relative max-w-4xl mx-auto">
@@ -467,7 +467,7 @@ export default function App() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
             className="text-center mb-24"
           >
-            <h3 className="font-display font-bold text-[50px] md:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.sponsors.title}</h3>
+            <h3 className="font-display font-bold text-[50px] md:text-[60px] lg:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.sponsors.title}</h3>
             <p className="text-gray-400 text-xl max-w-2xl mx-auto font-medium">
               {t.sponsors.desc}
             </p>
@@ -497,7 +497,7 @@ export default function App() {
             className="mb-32 bg-[#141414] rounded-[40px] p-10 md:p-16 border border-white/5"
           >
             <h4 className="text-center text-sm font-bold tracking-widest text-gray-500 uppercase mb-12">{t.demographics.title}</h4>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div>
                 <div className="text-4xl md:text-5xl font-display font-bold text-amber-500 mb-2">75%</div>
                 <div className="text-gray-400 font-medium">{t.demographics.male}</div>
@@ -624,10 +624,10 @@ export default function App() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
             className="text-center mb-20"
           >
-            <h3 className="font-display font-bold text-[50px] md:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.howIWork.title}</h3>
+            <h3 className="font-display font-bold text-[50px] md:text-[60px] lg:text-[80px] leading-none tracking-[-0.03em] mb-6">{t.howIWork.title}</h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
               { step: "01", title: t.howIWork.step1, icon: Activity },
               { step: "02", title: t.howIWork.step2, icon: BookOpen },
@@ -647,7 +647,7 @@ export default function App() {
                 <item.icon className="w-10 h-10 text-amber-500 group-hover:text-white mb-4 transition-colors" />
                 <h4 className="text-xl font-bold">{item.title}</h4>
                 {idx < 4 && (
-                  <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-gray-300 group-hover:text-white/50">
+                  <div className="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10 text-gray-300 group-hover:text-white/50">
                     <ArrowRight className="w-6 h-6" />
                   </div>
                 )}
@@ -682,7 +682,7 @@ export default function App() {
             initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeInUp}
             className="lg:w-1/2"
           >
-            <h3 className="font-display font-bold text-[60px] md:text-[90px] leading-[0.9] tracking-[-0.03em] mb-8 drop-shadow-md">
+            <h3 className="font-display font-bold text-[60px] md:text-[70px] lg:text-[90px] leading-[0.9] tracking-[-0.03em] mb-8 drop-shadow-md">
               {t.vault.title1}<br/>{t.vault.title2}<br/>{t.vault.title3}
             </h3>
             <p className="text-2xl font-medium mb-10 max-w-lg text-black/80 leading-relaxed">
@@ -712,7 +712,7 @@ export default function App() {
                <motion.div 
                  animate={{ y: [0, -15, 0] }}
                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                 className="absolute top-10 right-0 md:-right-10 bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-3 rotate-12 border border-white/50"
+                 className="absolute top-10 right-0 md:right-0 lg:-right-10 bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-3 rotate-12 border border-white/50"
                >
                  <FileText className="w-5 h-5 text-amber-600" fill="currentColor" /> {t.vault.badge1}
                </motion.div>
@@ -720,7 +720,7 @@ export default function App() {
                <motion.div 
                  animate={{ y: [0, 15, 0] }}
                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                 className="absolute bottom-20 left-0 md:-left-10 bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-3 -rotate-6 border border-white/50"
+                 className="absolute bottom-20 left-0 md:left-0 lg:-left-10 bg-white/90 backdrop-blur-md text-black px-6 py-3 rounded-full font-bold shadow-2xl flex items-center gap-3 -rotate-6 border border-white/50"
                >
                  <MessageCircle className="w-5 h-5 text-amber-600" fill="currentColor" /> {t.vault.badge2}
                </motion.div>
@@ -843,29 +843,39 @@ export default function App() {
 
       {/* Footer */}
       <footer className="bg-white py-16 border-t border-gray-200">
-        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col lg:flex-row justify-between items-center gap-8">
           <div className="text-3xl font-serif italic font-bold tracking-tight">Private Power Files</div>
           <div className="flex flex-wrap justify-center items-center gap-8">
             <a href="#" className="text-gray-500 hover:text-amber-600 font-semibold transition-colors">{t.footer.mediaKit}</a>
             <a href="#" className="text-gray-500 hover:text-amber-600 font-semibold transition-colors">{t.footer.imprint}</a>
             <a href="#" className="text-gray-500 hover:text-amber-600 font-semibold transition-colors">{t.footer.privacy}</a>
           </div>
-          <div className="text-gray-400 text-sm font-medium flex items-center gap-2">
-            © 2026 Nicole. {t.footer.rights}
-            <span 
-              className="ml-4 cursor-pointer text-gray-200 hover:text-amber-500 transition-colors select-none"
-              onClick={(e) => {
-                const el = e.currentTarget;
-                if (el.textContent === t.easterEgg.redacted) {
-                  el.textContent = t.easterEgg.revealed;
-                  el.classList.remove('text-gray-200');
-                  el.classList.add('text-amber-500', 'font-bold');
-                }
-              }}
-              title="Classified"
+          <div className="text-gray-400 text-sm font-medium flex flex-col items-center gap-2">
+            <div className="flex items-center gap-2">
+              © 2026 Nicole. {t.footer.rights}
+              <span 
+                className="ml-4 cursor-pointer text-gray-200 hover:text-amber-500 transition-colors select-none"
+                onClick={(e) => {
+                  const el = e.currentTarget;
+                  if (el.textContent === t.easterEgg.redacted) {
+                    el.textContent = t.easterEgg.revealed;
+                    el.classList.remove('text-gray-200');
+                    el.classList.add('text-amber-500', 'font-bold');
+                  }
+                }}
+                title="Classified"
+              >
+                {t.easterEgg.redacted}
+              </span>
+            </div>
+            <a 
+              href="http://vamela.info" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-400 hover:text-amber-600 transition-colors text-xs mt-2 flex items-center gap-1"
             >
-              {t.easterEgg.redacted}
-            </span>
+              Designed by <span className="font-bold text-amber-600">VAMELA</span>
+            </a>
           </div>
         </div>
       </footer>
