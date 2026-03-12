@@ -37,10 +37,28 @@ function AnimatedNumber({ value, suffix = "", duration = 2 }: { value: number, s
   return <motion.span>{rounded}</motion.span>;
 }
 
+const timeAgo = (dateString: string) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+  
+  if (diffInSeconds < 60) return `Just now`;
+  const diffInMinutes = Math.floor(diffInSeconds / 60);
+  if (diffInMinutes < 60) return `${diffInMinutes}m ago`;
+  const diffInHours = Math.floor(diffInMinutes / 60);
+  if (diffInHours < 24) return `${diffInHours}h ago`;
+  const diffInDays = Math.floor(diffInHours / 24);
+  if (diffInDays < 30) return `${diffInDays}d ago`;
+  const diffInMonths = Math.floor(diffInDays / 30);
+  if (diffInMonths < 12) return `${diffInMonths}mo ago`;
+  return `${Math.floor(diffInMonths / 12)}y ago`;
+};
+
 export default function App() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [lang, setLang] = useState<'en' | 'de'>('en');
   const [isPodcastPlaying, setIsPodcastPlaying] = useState(false);
+  const [youtubeVideos, setYoutubeVideos] = useState<any[]>([]);
 
   useEffect(() => {
     // Auto-detect language based on browser locale
@@ -50,6 +68,21 @@ export default function App() {
     } else {
       setLang('en');
     }
+
+    // Fetch latest YouTube videos
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.youtube.com%2Ffeeds%2Fvideos.xml%3Fchannel_id%3DUC7LWatoF5_DpZ__1jzQOhXQ');
+        const data = await res.json();
+        if (data && data.items) {
+          const longFormVideos = data.items.filter((item: any) => !item.link.includes('/shorts/'));
+          setYoutubeVideos(longFormVideos.slice(0, 3));
+        }
+      } catch (err) {
+        console.error('Failed to fetch YouTube videos', err);
+      }
+    };
+    fetchVideos();
   }, []);
 
   const translations = {
@@ -58,9 +91,9 @@ export default function App() {
       inquiries: "Inquiries",
       hero: { hey: "Hey,", there: "there", badge: "Open for Brand Partnerships", desc1: "Producing meticulously researched", desc2: "video essays, deep dives, and", desc3: "mini-documentaries.", role1: "VIDEO", role2: "ESSAYIST &", role3: "RESEARCHER" },
       stats: { live: "Live YouTube API Sync", subs: "Subscribers", views: "Monthly Views", time: "Avg. Watch Time", docs: "Documentaries" },
-      videos: { title: "LATEST ESSAYS", desc: "Deep dives into internet culture, economics, and the hidden systems that shape our world.", viewAll: "View All Documentaries", v1Title: "The Dark Psychology of Casino Apps", v1Views: "2.4M views", v1Time: "1 week ago", v2Title: "How One Company Monopolized the Internet", v2Views: "1.8M views", v2Time: "3 weeks ago", v3Title: "The Hidden Cost of 'Free' Shipping", v3Views: "3.1M views", v3Time: "1 month ago" },
-      podcast: { title: "THE AUDIO FILES", desc: "Listen to the essays and exclusive interviews on the go.", epTitle: "JFK: The Unsolved Mystery", epDesc: "A deep dive into the events of November 22, 1963." },
-      timeline: { title: "THE JOURNEY", m1Year: "2021", m1Text: "Channel Launched", m2Year: "2023", m2Text: "1 Million Subscribers", m3Year: "2024", m3Text: "First Major Award" },
+      videos: { title: "NEW VIDEOS", desc: "Deep dives into internet culture, economics, and the hidden systems that shape our world.", viewAll: "View All Documentaries", v1Title: "The Dark Psychology of Casino Apps", v1Views: "2.4M views", v1Time: "1 week ago", v2Title: "How One Company Monopolized the Internet", v2Views: "1.8M views", v2Time: "3 weeks ago", v3Title: "The Hidden Cost of 'Free' Shipping", v3Views: "3.1M views", v3Time: "1 month ago" },
+      podcast: { title: "THE AUDIO PODCAST", desc: "Listen to the essays and exclusive interviews on the go.", epTitle: "JFK: The Unsolved Mystery", epDesc: "A deep dive into the events of November 22, 1963." },
+      timeline: { title: "THE JOURNEY", m1Year: "2025", m1Text: "The Idea", m2Year: "2026", m2Text: "Channel Launched", m3Year: "2026", m3Text: "Podcast Launched" },
       demographics: { title: "AUDIENCE DEMOGRAPHICS", male: "75% Male", age: "18-34 Years", region: "60% DACH", edu: "High Education" },
       howIWork: { title: "METHODOLOGY", step1: "Idea", step2: "Deep Research", step3: "Script", step4: "Animation", step5: "Upload" },
       sponsors: { title: "PARTNER WITH ME", desc: "Looking to reach a highly educated, analytical audience? I offer seamless, high-retention integrations that respect the viewer's intelligence.", s1Title: "Deep-Dive Integrations", s1Desc: "A highly scripted 60-90 second mid-roll integration that naturally connects your brand's value to the documentary's core topic.", s2Title: "Dedicated Mini-Docs", s2Desc: "An entire 15-20 minute video essay sponsored by and subtly themed around your brand's industry or mission.", s3Title: "Newsletter Placements", s3Desc: "Reach my most dedicated viewers directly in their inbox with a sponsored segment in the weekly 'Research Notes' dispatch.", trusted: "Trusted by brands that value education" },
@@ -77,9 +110,9 @@ export default function App() {
       inquiries: "Anfragen",
       hero: { hey: "Hey,", there: "da", badge: "Offen für Markenpartnerschaften", desc1: "Produktion von akribisch recherchierten", desc2: "Video-Essays, Deep Dives und", desc3: "Mini-Dokumentationen.", role1: "VIDEO", role2: "ESSAYISTIN &", role3: "RESEARCHER" },
       stats: { live: "Live YouTube API Sync", subs: "Abonnenten", views: "Monatliche Aufrufe", time: "Durchschn. Wiedergabezeit", docs: "Dokumentationen" },
-      videos: { title: "NEUESTE ESSAYS", desc: "Tiefe Einblicke in Internetkultur, Wirtschaft und die verborgenen Systeme, die unsere Welt prägen.", viewAll: "Alle Dokumentationen ansehen", v1Title: "Die dunkle Psychologie von Casino-Apps", v1Views: "2,4 Mio. Aufrufe", v1Time: "vor 1 Woche", v2Title: "Wie ein Unternehmen das Internet monopolisierte", v2Views: "1,8 Mio. Aufrufe", v2Time: "vor 3 Wochen", v3Title: "Die versteckten Kosten von 'kostenlosem' Versand", v3Views: "3,1 Mio. Aufrufe", v3Time: "vor 1 Monat" },
-      podcast: { title: "DIE AUDIO AKTEN", desc: "Höre die Essays und exklusive Interviews von unterwegs.", epTitle: "JFK: Das ungelöste Geheimnis", epDesc: "Ein Deep Dive in die Ereignisse vom 22. November 1963." },
-      timeline: { title: "DIE REISE", m1Year: "2021", m1Text: "Kanalstart", m2Year: "2023", m2Text: "1 Mio. Abonnenten", m3Year: "2024", m3Text: "Erster Award" },
+      videos: { title: "NEUE VIDEOS", desc: "Tiefe Einblicke in Internetkultur, Wirtschaft und die verborgenen Systeme, die unsere Welt prägen.", viewAll: "Alle Dokumentationen ansehen", v1Title: "Die dunkle Psychologie von Casino-Apps", v1Views: "2,4 Mio. Aufrufe", v1Time: "vor 1 Woche", v2Title: "Wie ein Unternehmen das Internet monopolisierte", v2Views: "1,8 Mio. Aufrufe", v2Time: "vor 3 Wochen", v3Title: "Die versteckten Kosten von 'kostenlosem' Versand", v3Views: "3,1 Mio. Aufrufe", v3Time: "vor 1 Monat" },
+      podcast: { title: "DER AUDIO PODCAST", desc: "Höre die Essays und exklusive Interviews von unterwegs.", epTitle: "JFK: Das ungelöste Geheimnis", epDesc: "Ein Deep Dive in die Ereignisse vom 22. November 1963." },
+      timeline: { title: "DIE REISE", m1Year: "2025", m1Text: "Start mit der Idee", m2Year: "2026", m2Text: "Kanaleröffnung", m3Year: "2026", m3Text: "Podcast-Start" },
       demographics: { title: "ZUSCHAUER DEMOGRAFIE", male: "75% Männlich", age: "18-34 Jahre", region: "60% aus DACH", edu: "Hohes Bildungsniveau" },
       howIWork: { title: "METHODIK", step1: "Idee", step2: "Deep Research", step3: "Skript", step4: "Animation", step5: "Upload" },
       sponsors: { title: "PARTNERSCHAFTEN", desc: "Möchten Sie ein hochgebildetes, analytisches Publikum erreichen? Ich biete nahtlose Integrationen mit hoher Zuschauerbindung, die die Intelligenz der Zuschauer respektieren.", s1Title: "Deep-Dive Integrationen", s1Desc: "Eine stark geskriptete 60-90 Sekunden Mid-Roll-Integration, die den Wert Ihrer Marke natürlich mit dem Kernthema der Dokumentation verbindet.", s2Title: "Dedizierte Mini-Dokus", s2Desc: "Ein komplettes 15-20 minütiges Video-Essay, das von Ihrer Marke gesponsert wird und subtil um Ihre Branche oder Mission thematisiert ist.", s3Title: "Newsletter Platzierungen", s3Desc: "Erreichen Sie meine treuesten Zuschauer direkt in ihrem Posteingang mit einem gesponserten Segment im wöchentlichen 'Research Notes' Newsletter.", trusted: "Vertraut von Marken, die Bildung schätzen" },
@@ -217,7 +250,7 @@ export default function App() {
                 {t.hero.desc3}
               </p>
               <div className="flex gap-3 mt-5 justify-start md:justify-end">
-                <a href="#" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><Youtube className="w-5 h-5" /></a>
+                <a href="https://www.youtube.com/@Nimascha" target="_blank" rel="noopener noreferrer" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><Youtube className="w-5 h-5" /></a>
                 <a href="#" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><Instagram className="w-5 h-5" /></a>
                 <a href="https://open.spotify.com/show/1NNBLS1lzJwfpfSCl50Bnv" target="_blank" rel="noopener noreferrer" className="w-11 h-11 bg-black text-white rounded-full flex items-center justify-center hover:bg-amber-600 hover:scale-110 transition-all shadow-lg"><SpotifyIcon className="w-5 h-5" /></a>
               </div>
@@ -313,9 +346,9 @@ export default function App() {
               <h3 className="font-display font-bold text-[50px] md:text-[60px] lg:text-[75px] leading-none tracking-[-0.03em] bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">{t.videos.title}</h3>
               <p className="text-gray-500 mt-4 text-lg max-w-xl font-medium">{t.videos.desc}</p>
             </div>
-            <button className="flex items-center gap-2 font-bold text-[15px] border-b-2 border-black pb-1 hover:text-amber-600 hover:border-amber-600 transition-all group">
+            <a href="https://www.youtube.com/@Nimascha" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-bold text-[15px] border-b-2 border-black pb-1 hover:text-amber-600 hover:border-amber-600 transition-all group">
               {t.videos.viewAll} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
           </motion.div>
           
           <motion.div 
@@ -325,12 +358,19 @@ export default function App() {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
           >
-            {[
-              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104433_b5fefd8a-0189-4514-bbf7-82c69021f7d6.jpeg&w=1280&q=85', title: t.videos.v1Title, views: t.videos.v1Views, time: t.videos.v1Time, duration: '24:15' },
-              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104036_d28b472c-6f7d-4daa-b149-1eb0b0515768.jpeg&w=1280&q=85', title: t.videos.v2Title, views: t.videos.v2Views, time: t.videos.v2Time, duration: '31:40' },
-              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104122_02ef2894-9775-4159-b963-b527eae6db7b.jpeg&w=1280&q=85', title: t.videos.v3Title, views: t.videos.v3Views, time: t.videos.v3Time, duration: '19:50' },
-            ].map((video, idx) => (
-              <motion.div key={idx} variants={fadeInUp} className="group cursor-pointer">
+            {(youtubeVideos.length > 0 ? youtubeVideos.map(v => ({
+              img: v.thumbnail,
+              title: v.title,
+              views: 'Nimascha',
+              time: timeAgo(v.pubDate),
+              duration: '',
+              link: v.link
+            })) : [
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104433_b5fefd8a-0189-4514-bbf7-82c69021f7d6.jpeg&w=1280&q=85', title: t.videos.v1Title, views: t.videos.v1Views, time: t.videos.v1Time, duration: '24:15', link: '#' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104036_d28b472c-6f7d-4daa-b149-1eb0b0515768.jpeg&w=1280&q=85', title: t.videos.v2Title, views: t.videos.v2Views, time: t.videos.v2Time, duration: '31:40', link: '#' },
+              { img: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_2zg6kRsQgLvpBAc5mmGVtMaqZi0%2Fhf_20260228_104122_02ef2894-9775-4159-b963-b527eae6db7b.jpeg&w=1280&q=85', title: t.videos.v3Title, views: t.videos.v3Views, time: t.videos.v3Time, duration: '19:50', link: '#' },
+            ]).map((video, idx) => (
+              <motion.div key={idx} variants={fadeInUp} className="group cursor-pointer" onClick={() => video.link !== '#' && window.open(video.link, '_blank')}>
                 <div className="relative rounded-[32px] overflow-hidden aspect-video mb-6 shadow-xl shadow-black/5 ring-1 ring-black/5">
                   <img src={video.img} alt={video.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" referrerPolicy="no-referrer" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
@@ -341,11 +381,13 @@ export default function App() {
                     </div>
                   </div>
                   
-                  <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
-                    {video.duration}
-                  </div>
+                  {video.duration && (
+                    <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">
+                      {video.duration}
+                    </div>
+                  )}
                 </div>
-                <h4 className="font-bold text-2xl leading-tight mb-3 group-hover:text-amber-600 transition-colors">{video.title}</h4>
+                <h4 className="font-bold text-2xl leading-tight mb-3 group-hover:text-amber-600 transition-colors line-clamp-2" title={video.title}>{video.title}</h4>
                 <div className="flex items-center text-sm text-gray-500 font-semibold">
                   <span>{video.views}</span>
                   <span className="mx-3 w-1 h-1 rounded-full bg-gray-300"></span>
